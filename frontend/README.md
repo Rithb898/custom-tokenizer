@@ -18,7 +18,6 @@ React web application with visual tokenizer interface built with Vite and Tailwi
 - **Vite 7** - Build tool and dev server  
 - **Tailwind CSS 4** - Styling framework
 - **Lucide React** - Icon library
-- **ESLint 9** - Code linting
 
 ## Installation
 
