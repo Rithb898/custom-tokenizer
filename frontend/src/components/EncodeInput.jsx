@@ -4,9 +4,9 @@ import { Zap, Trash2 } from "lucide-react";
 function EncodeInput({ inputText, setInputText }) {
   const examples = [
     "Hello world!",
+    "[START] Hello world [END]",
     "Price: $29.99 (50% off)",
-    "Attention all you need.",
-    "rithcoderr@gmail.com logged in",
+    "[UNK] unknown token test",
     "AI Will take your job",
   ];
 

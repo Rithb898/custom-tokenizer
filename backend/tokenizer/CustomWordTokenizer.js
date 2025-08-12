@@ -4,9 +4,24 @@ class CustomWordTokenizer {
   constructor(storagePath) {
     this.wordToToken = {};
     this.tokenToWord = {};
-    this.nextTokenId = 1;
+    this.nextTokenId = 5; // Reserve 0-4 for special tokens
     this.storagePath = storagePath;
+    this.initSpecialTokens();
     this.loadFromStorage();
+  }
+
+  initSpecialTokens() {
+    const specialTokens = {
+      '[PAD]': 0,
+      '[UNK]': 1,
+      '[START]': 2,
+      '[END]': 3
+    };
+    
+    Object.entries(specialTokens).forEach(([token, id]) => {
+      this.wordToToken[token] = id;
+      this.tokenToWord[id] = token;
+    });
   }
 
   preloadCommonWords(words) {
@@ -41,11 +56,34 @@ class CustomWordTokenizer {
   }
 
   decode(tokenIds) {
-    return tokenIds.map(id => this.tokenToWord[id] || '[UNK]').join(' ');
+    return tokenIds.map(id => this.tokenToWord[id] || this.tokenToWord[1]).join(' ');
   }
 
   _tokenize(text) {
-    return text.toLowerCase().match(/[a-z0-9]+|[^a-z0-9\s]/g) || [];
+    // First extract special tokens, then tokenize the rest
+    const specialTokenPattern = /\[(PAD|UNK|START|END)\]/g;
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+    
+    while ((match = specialTokenPattern.exec(text)) !== null) {
+      // Add text before special token
+      if (match.index > lastIndex) {
+        const beforeText = text.slice(lastIndex, match.index);
+        parts.push(...beforeText.toLowerCase().match(/[a-z0-9]+|[^a-z0-9\s]/g) || []);
+      }
+      // Add special token
+      parts.push(match[0]);
+      lastIndex = match.index + match[0].length;
+    }
+    
+    // Add remaining text
+    if (lastIndex < text.length) {
+      const remainingText = text.slice(lastIndex);
+      parts.push(...remainingText.toLowerCase().match(/[a-z0-9]+|[^a-z0-9\s]/g) || []);
+    }
+    
+    return parts.filter(Boolean);
   }
 
   visualizeTokens(text) {
@@ -79,9 +117,9 @@ class CustomWordTokenizer {
         }
 
         const data = JSON.parse(fileContent);
-        this.wordToToken = data.wordToToken || {};
-        this.tokenToWord = data.tokenToWord || {};
-        this.nextTokenId = data.nextTokenId || 1;
+        this.wordToToken = { ...this.wordToToken, ...data.wordToToken };
+        this.tokenToWord = { ...this.tokenToWord, ...data.tokenToWord };
+        this.nextTokenId = data.nextTokenId || 5;
 
       } catch (err) {
         console.error('⚠️ Failed to read vocab file. Starting fresh.', err.message);

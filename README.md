@@ -17,6 +17,7 @@ custom-tokenizer/
 - **Decode**: Convert token IDs back to text  
 - **Visualize**: Display tokens in table format
 - **Learn**: Add new words to vocabulary
+- **Special Tokens**: `[PAD]`, `[UNK]`, `[START]`, `[END]` support
 - Preloaded with Wikipedia's 100 most common words
 - Web interface and CLI access
 
@@ -36,7 +37,9 @@ pnpm start
 
 # Or direct commands
 node index.js encode "hello world!"
-node index.js decode "[102, 103, 104]"
+node index.js encode "[START] hello world [END]"
+node index.js decode "[2, 5, 6, 3]"
+node index.js decode "[0, 1, 2, 3]"  # Special tokens
 ```
 
 ### Frontend Usage
@@ -62,6 +65,15 @@ pnpm start
 - `visualize <text>` - Show tokens in table format
 - `learn <text>` - Add new words to vocabulary
 - `exit` - Exit interactive mode
+
+## Special Tokens
+
+| Token | ID | Usage Example |
+|-------|----|--------------|
+| `[PAD]` | 0 | `node index.js encode "[PAD]"` |
+| `[UNK]` | 1 | `node index.js encode "[UNK]"` |
+| `[START]` | 2 | `node index.js encode "[START] text"` |
+| `[END]` | 3 | `node index.js encode "text [END]"` |
 
 ## Components
 

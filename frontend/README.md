@@ -5,9 +5,10 @@ React web application with visual tokenizer interface built with Vite and Tailwi
 ## Features
 
 - **Visual Tokenization**: Real-time token visualization as you type
+- **Special Tokens**: Support for `[PAD]`, `[UNK]`, `[START]`, `[END]` tokens
 - **Encode/Decode Interface**: Split-screen encoding and decoding
 - **Token Display**: Interactive table showing tokens, IDs, and positions
-- **Quick Start Examples**: Pre-loaded example text
+- **Quick Start Examples**: Pre-loaded example text with special tokens
 - **Persistent Storage**: Saves input text in localStorage
 - **Responsive Design**: Works on desktop and mobile
 
@@ -69,6 +70,12 @@ Enter comma-separated token IDs to decode back to text.
 
 ### Learning Capability
 The tokenizer learns new words automatically as you type.
+
+### Special Token Support
+- `[PAD]` (ID: 0) - Padding token
+- `[UNK]` (ID: 1) - Unknown token
+- `[START]` (ID: 2) - Sequence start
+- `[END]` (ID: 3) - Sequence end
 
 ## Project Structure
 

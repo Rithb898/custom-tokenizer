@@ -24,9 +24,24 @@ function DecodeInput({ tokenIds, setTokenIds, onDecode, decodedText, onClear }) 
         <textarea
           value={tokenIds}
           onChange={(e) => setTokenIds(e.target.value)}
-          placeholder="Enter token IDs (comma-separated): 1, 2, 3"
+          placeholder="Enter token IDs (comma-separated): 2, 5, 6, 3"
           className="w-full h-24 bg-white/5 border border-white/20 rounded-lg p-4 text-white placeholder-white/50 resize-none"
         />
+        
+        <div className="flex flex-wrap gap-2">
+          <button
+            onClick={() => setTokenIds("0, 1, 2, 3")}
+            className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 text-purple-300 hover:bg-purple-500/30 hover:text-purple-200 rounded-lg transition-all cursor-pointer text-sm"
+          >
+            Special Tokens
+          </button>
+          <button
+            onClick={() => setTokenIds("2, 5, 6, 3")}
+            className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 text-purple-300 hover:bg-purple-500/30 hover:text-purple-200 rounded-lg transition-all cursor-pointer text-sm"
+          >
+            [START] hello world [END]
+          </button>
+        </div>
 
         <button
           onClick={onDecode}

@@ -7,6 +7,7 @@ Command-line interface for the Custom Word Tokenizer with interactive and direct
 - Interactive shell mode
 - Direct command execution
 - Persistent vocabulary storage
+- Special tokens: `[PAD]` (0), `[UNK]` (1), `[START]` (2), `[END]` (3)
 - Wikipedia's 100 most common words preloaded
 - Token visualization in table format
 
@@ -31,7 +32,11 @@ node index.js
 node index.js encode "hello world"
 
 # Decode token IDs to text
-node index.js decode "[1, 2, 3]"
+node index.js decode "[5, 6, 7]"
+
+# Use special tokens
+node index.js encode "[START] hello world [END]"
+node index.js decode "[2, 5, 6, 3]"
 
 # Visualize tokens in table format
 node index.js visualize "hello world"

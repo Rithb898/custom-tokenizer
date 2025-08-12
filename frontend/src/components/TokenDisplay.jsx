@@ -16,6 +16,11 @@ function TokenDisplay({ tokens = [] }) {
   ];
 
   const getTokenColor = (tokenId) => {
+    // Special tokens get distinct colors
+    if (tokenId === 0) return "#6B7280"; // [PAD] - gray
+    if (tokenId === 1) return "#DC2626"; // [UNK] - red
+    if (tokenId === 2) return "#059669"; // [START] - green
+    if (tokenId === 3) return "#DC2626"; // [END] - red
     return colors[tokenId % colors.length];
   };
 
@@ -39,7 +44,9 @@ function TokenDisplay({ tokens = [] }) {
             {tokens.map((item, index) => (
               <div
                 key={index}
-                className="px-3 py-2 rounded-full text-black text-sm font-medium shadow-md hover:scale-105 transition-transform cursor-pointer group relative"
+                className={`px-3 py-2 rounded-full text-sm font-medium shadow-md hover:scale-105 transition-transform cursor-pointer group relative ${
+                  item.tokenId <= 3 ? 'text-white border-2 border-white/30' : 'text-black'
+                }`}
                 style={{ backgroundColor: getTokenColor(item.tokenId) }}
                 title={`Token: "${item.token}" | ID: ${item.tokenId}`}
               >
