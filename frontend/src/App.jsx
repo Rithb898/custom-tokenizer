@@ -80,7 +80,7 @@ function App() {
             <User size={24} className="text-white" />
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/Rithb898/custom-tokenizer"
             target="_blank"
             rel="noopener noreferrer"
             title="GitHub"
@@ -131,6 +131,14 @@ function App() {
         <div>
           <QuickStart onLoadExample={loadExample} />
         </div>
+      </div>
+
+      {/* Footer */}
+      <div className="text-center py-5">
+        Made with ❤️ by{" "}
+        <a href="https://github.com/Rithb898" className="text-mono">
+          Rith
+        </a>
       </div>
     </div>
   );

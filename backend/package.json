@@ -1,13 +1,28 @@
 {
-  "name": "backend",
+  "name": "custom-tokenizer-express-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express Api for custom tokenizer.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon --ignore tokenizer-vocab.json index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "backend",
+    "express",
+    "api",
+    "tokenizer",
+    "text-processing"
+  ],
+  "author": "Rith Banerjee",
   "license": "ISC",
-  "packageManager": "pnpm@10.10.0"
+  "packageManager": "pnpm@10.10.0",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }

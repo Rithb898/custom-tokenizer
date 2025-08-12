@@ -5,7 +5,7 @@ function EncodeInput({ inputText, setInputText }) {
   const examples = [
     "Hello world!",
     "Price: $29.99 (50% off)",
-    "React & Node.js are great!",
+    "Attention all you need.",
     "rithcoderr@gmail.com logged in",
     "AI Will take your job",
   ];

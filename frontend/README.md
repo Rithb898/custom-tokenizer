@@ -1,12 +1,88 @@
-# React + Vite
+# Frontend - Custom Word Tokenizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React web application with visual tokenizer interface built with Vite and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Visual Tokenization**: Real-time token visualization as you type
+- **Encode/Decode Interface**: Split-screen encoding and decoding
+- **Token Display**: Interactive table showing tokens, IDs, and positions
+- **Quick Start Examples**: Pre-loaded example text
+- **Persistent Storage**: Saves input text in localStorage
+- **Responsive Design**: Works on desktop and mobile
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 19** - UI framework
+- **Vite 7** - Build tool and dev server  
+- **Tailwind CSS 4** - Styling framework
+- **Lucide React** - Icon library
+- **ESLint 9** - Code linting
+
+## Installation
+
+```bash
+pnpm install
+```
+
+## Development
+
+```bash
+# Start dev server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
+
+# Lint code
+pnpm lint
+```
+
+## Components
+
+### Core Components
+- `EncodeInput.jsx` - Text input with real-time tokenization
+- `DecodeInput.jsx` - Token ID input with decoding functionality
+- `TokenDisplay.jsx` - Visual token table display
+- `QuickStart.jsx` - Example text loader
+
+### Utils
+- `tokenizer.js` - Frontend tokenizer implementation
+- `commonWords.js` - Wikipedia's 100 most common words
+
+## Features in Detail
+
+### Real-time Tokenization
+Type text and see tokens appear instantly in the table below.
+
+### Token Visualization
+Each token shows:
+- Token text
+- Unique token ID
+- Position in sequence
+
+### Decode Functionality
+Enter comma-separated token IDs to decode back to text.
+
+### Learning Capability
+The tokenizer learns new words automatically as you type.
+
+## Project Structure
+
+```
+frontend/
+├── src/
+│   ├── components/     # React components
+│   ├── utils/         # Tokenizer utilities
+│   ├── App.jsx        # Main app component
+│   └── main.jsx       # Entry point
+├── public/            # Static assets
+└── package.json       # Dependencies
+```
+
+## Browser Support
+
+Modern browsers with ES6+ support required.
