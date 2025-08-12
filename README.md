@@ -20,6 +20,11 @@ custom-tokenizer/
 - Preloaded with Wikipedia's 100 most common words
 - Web interface and CLI access
 
+## Live Demo
+
+- **Frontend**: https://custom-tokenizer-rith.vercel.app/
+- **Backend API**: https://custom-tokenizer.onrender.com
+
 ## Quick Start
 
 ### CLI Usage
