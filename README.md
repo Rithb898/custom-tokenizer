@@ -75,12 +75,6 @@ pnpm start
 | `[START]` | 2 | `node index.js encode "[START] text"` |
 | `[END]` | 3 | `node index.js encode "text [END]"` |
 
-## Components
-
-- **CLI**: Node.js command-line interface with interactive mode → [See CLI README](./cli/README.md)
-- **Frontend**: React + Vite web application with Tailwind CSS → [See Frontend README](./frontend/README.md)
-- **Backend**: Express.js REST API with tokenization endpoints → [See Backend README](./backend/README.md)
-
 ## Detailed Documentation
 
 For detailed information about each component, check the individual README files:
