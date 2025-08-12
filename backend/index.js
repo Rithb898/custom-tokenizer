@@ -16,7 +16,23 @@ app.use(express.json());
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('Tokenizer API is running');
+  res.json({
+    api: "Custom Word Tokenizer",
+    status: "running",
+    routes: [
+      "POST /api/encode - text → tokens",
+      "POST /api/decode - tokens → text", 
+      "POST /api/visualize - show token breakdown",
+      "POST /api/learn - add words to vocab"
+    ],
+    examples: {
+      encode: { text: "hello world" },
+      decode: { tokens: [4, 5] },
+      visualize: { text: "hello world" },
+      learn: { text: "new words" }
+    },
+    tokens: { "[PAD]": 0, "[UNK]": 1, "[START]": 2, "[END]": 3 }
+  });
 })
 
 app.post('/api/encode', (req, res) => {

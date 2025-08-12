@@ -14,6 +14,7 @@ REST API backend for the Custom Word Tokenizer with Express.js server.
 
 | Method | Endpoint | Description | Body |
 |--------|----------|-------------|------|
+| GET | `/` | API information and documentation | None |
 | POST | `/api/encode` | Convert text to token IDs | `{"text": "hello world"}` |
 | POST | `/api/decode` | Convert token IDs back to text | `{"tokens": [1, 2, 3]}` |
 | POST | `/api/visualize` | Get token visualization data | `{"text": "hello world"}` |
